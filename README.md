@@ -18,7 +18,30 @@ The main purpose of this project is to provide unmatched security from outside t
 - Deep process introspection (prevents process creation if the parent process has been compromised)
 - Fileless malware (powershell command line scanning)
 
-For more details check the [HVMI specification](http://hvmi.readthedocs.io).
+For more details check out the [HVMI specification](http://hvmi.readthedocs.io) and the [HVMI blog](https://hvmi.github.io/blog/).
+
+## Supported hypervisors
+
+HVMI can work on any hypervisor, as long the proper API is provided (which is documented [here](https://hvmi.readthedocs.io/en/latest/chapters/1-overview.html#prerequisites-from-the-hv)). Currently, it has been integrated and tested with the following hypervisors:
+* [Napoca Hypervisor](https://github.com/napocahv/napoca) - Bitdefender's bare-metal hypervisor for Intel CPUs
+* [Xen](https://xenbits.xen.org) - the famous open source hypervisor
+* [KVM](https://www.linux-kvm.org/page/Main_Page) - the Linux Kernel Virtual Machine
+
+
+## Repository structure
+
+- **introcore** - the introcore source code and header files
+- **include** - the public header files and headers shared between multiple projects
+- **cami** - the [Guest support mechanism](#Guest-support-mechanism) files
+- **exceptions** - the [Exception](#Exceptions) files
+- **agents** - the Windows special agents project files
+- **docs** - the documentation
+- **build_disasm** - the files used to build the [bddisasm](https://github.com/bitdefender/bddisasm) dependency
+- **deserialize** - the deserializer scripts, used to extract useful information from serialized alerts
+- **Doxygen** - the Doxygen settings
+- **windows_build** - the scripts used during the [Windows build](#Windows-build)
+- **daemon** - an integration example for Xen and KVM
+
 
 ## Checkout
 
@@ -167,20 +190,6 @@ make html
 ```
 
 This will also build the Doxygen documentation. The result will be in `docs/_build/html`.
-
-## Repository structure
-
-- **introcore** - contains the introcore source and header files
-- **include** - contains the public header files and headers shared between multiple projects
-- **cami** - contains the [Guest support mechanism](#Guest-support-mechanism) files
-- **exceptions** - contains the [Exception](#Exceptions) files
-- **agents** - contains the Windows special agents project files
-- **docs** - contains the documentation
-- **build_disasm** - contains the files used to build the [bddisasm](https://github.com/bitdefender/bddisasm) dependency
-- **deserialize** - contains the deserializer scripts
-- **Doxygen** - contains the Doxygen settings
-- **windows_build** - contains the scripts used during the [Windows build](#Windows-build)
-- **daemon** - contains an integration example for Xen and KVM
 
 ## Exceptions
 
